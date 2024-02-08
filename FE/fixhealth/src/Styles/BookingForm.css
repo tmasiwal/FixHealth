@@ -50,15 +50,7 @@
             border-radius: 10px;
 
         }
-  .slot-submit-button{
-    /* width: 200px; */
-    background-color: #F5F5F5;
-    font-size: 16px;
-    
-    text-align: center;
-    
-    color: #220b0b;
-  }
+  
 .checkbox-button{
     display: flex;
     justify-content: flex-start;

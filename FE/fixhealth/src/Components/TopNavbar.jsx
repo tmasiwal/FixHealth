@@ -2,10 +2,14 @@ import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../Styles/TopNavbar.css";
+import { useNavigate } from "react-router-dom";
 
 const TopNavbar = () => {
   const [scrolled, setScrolled] = useState(false);
-
+const navigate=useNavigate()
+const HandleClick=()=>{
+  navigate("/booking")
+}
   useEffect(() => {
     AOS.init();
 
@@ -60,6 +64,7 @@ const TopNavbar = () => {
             data-aos-anchor="#example-anchor"
             data-aos-offset="500"
             data-aos-duration="500"
+            onClick={HandleClick}
           >
             Book Now
           </button>

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "../Styles/BookingForm.css";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import AOS from "aos";
 
 const BookingForm = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const navigate=useNavigate()
   const initialFormData = {
     name: "",
     phoneNumber: "",
@@ -15,11 +16,11 @@ const BookingForm = () => {
     complaints: "",
     previousExperience: null,
     slot: "",
-    date:"",
+    date: "",
   };
   const [formData, setFormData] = useState(initialFormData);
   const [doctorData, setDoctorData] = useState([]);
-  const [submitForm,setSubmitForm] = useState(false);
+  const [submitForm, setSubmitForm] = useState(false);
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
@@ -40,34 +41,41 @@ const BookingForm = () => {
     }
   };
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
     setFormData(initialFormData);
-    
+
     setSearchParams({ ...searchParams, city: formData.city });
-    setSubmitForm(true)
+    setSubmitForm(true);
   };
   const getDoctorsData = () => {
     axios
       .get(`https://dgd-4g2l.onrender.com/doctors/${formData.city}`)
       .then((res) => setDoctorData(res.data));
   };
-
+const handleClick=(id)=>{
+console.log(id)
+axios
+  .patch(`https://dgd-4g2l.onrender.com/doctors/${id}`, {
+    date: formData.date,
+    time: formData.slot,
+  })
+  .then((res) => navigate("/thanks"));
+}
   useEffect(() => {
     getDoctorsData();
-     AOS.init();
+    AOS.init();
   }, [formData.city]);
-  
-  const handleSlot=()=>{
- axios
-   .post(`https://dgd-4g2l.onrender.com/doctors/${formData.city}`,{
-    date:formData.date,
-    time:formData.slot
-   })
-   .then((res) => setDoctorData(res.data));
-  }
+
+  const handleSlot = () => {
+    axios
+      .post(`https://dgd-4g2l.onrender.com/doctors/${formData.city}`, {
+        date: formData.date,
+        time: formData.slot,
+      })
+      .then((res) => setDoctorData(res.data));
+  };
 
   return (
     <div>
@@ -222,21 +230,33 @@ const BookingForm = () => {
           </div>
           <button
             onClick={handleSlot}
-            className="bg-amber-400"
+            className="bg-amber-400 "
+            id=" slot-submit-button"
             data-aos="fade-left"
             data-aos-anchor="#example-anchor"
             data-aos-offset="500"
             data-aos-duration="500"
-            style={{width:"200px ",height:"90px",borderRadius:"50px"}}
+            style={{
+              width: "150px ",
+              height: "44px",
+              borderRadius: "10px",
+              marginTop: "30px",
+              fontSize: "20px",
+            }}
           >
-            submit
+            Submit
           </button>
         </div>
       )}
       {submitForm && (
         <div className="Doctors  " style={{ zIndex: "-10" }}>
           {doctorData?.map((doctor) => (
-            <div key={doctor._id} className="doctor-card  " data-aos="fade-up">
+            <div
+              key={doctor._id}
+              className="doctor-card  "
+              data-aos="fade-up"
+              onClick={() => handleClick(doctor._id)}
+            >
               <h1>{doctor.Name}</h1>
               <div className="doctor-info">
                 <img src={doctor.Image} alt="" className="doctor-image" />
