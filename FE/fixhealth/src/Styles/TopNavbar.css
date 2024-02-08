@@ -39,3 +39,33 @@
     font-weight: 500;
     line-height: 16.5px;
 }
+.expert{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+
+}
+.expert h1{
+   
+        color: rgb(133, 228, 228);
+    margin-top: 10px;
+     font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16.5px;
+
+}
+.expert h2{
+ color: #FFF;
+    margin-top: 10px;
+     font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16.5px;
+    
+}
