@@ -1,0 +1,16 @@
+*{
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("https://img.freepik.com/free-vector/abstract-blue-light-pipe-speed-zoom-black-background-technology_1142-9530.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  touch-action: pan-x pan-y;
+   height: 100vh;
+  overscroll-behavior: touch;
+  scroll-behavior: smooth;
+  background-attachment: fixed; 
+}

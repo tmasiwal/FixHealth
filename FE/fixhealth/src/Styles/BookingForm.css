@@ -1,0 +1,105 @@
+#container{
+    margin: 0 auto;
+    width: 100%;}
+ 
+       #container p{
+           
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 19px;
+            letter-spacing: 0em;
+            text-align: left;
+            margin-bottom: 11px;
+            color: #F5F5F5;
+        }
+       #container input{
+            background: #F5F5F5;
+            border: none;
+            width: 100%;
+            height: 44px;
+            border-radius: 10px;
+            padding: 11px 16px;
+            margin-bottom: 22px;
+            
+        }
+       #container input:focus {
+            outline: none;
+        }
+      #container input[type='submit']{
+            cursor: pointer;
+            margin-top: 11px;
+            margin-bottom: 44px;
+            background: rgb(251,191,36);
+            color: white;
+          
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 20px;
+            letter-spacing: 0em;
+            text-align: center;
+        }
+
+        .main-container-booking{
+
+            width: 60%;
+            margin: auto;
+            margin-top: 100px;
+            box-shadow: 0 0 20px aqua;
+            padding: 20px;
+            background: rgb(2, 45, 46); 
+            border-radius: 10px;
+
+        }
+  
+.checkbox-button{
+    display: flex;
+    justify-content: flex-start;
+   
+    align-items: center;
+     font-size: 16px;
+     font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: center;
+    
+    color: #F5F5F5;
+    gap: 10px;
+}
+
+.Doctors {
+  display: grid;
+  margin-top: 20px;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns grid */
+  gap: 20px; /* Gap between grid items */
+
+ margin: 30px;
+}
+
+.doctor-card {
+  background-color: #333333 ;/* Card background color */
+  padding: 20px; /* Card padding */
+  border-radius: 8px; /* Card border radius */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  color: #F5F5F5;/* Card box shadow */
+}
+
+.doctor-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.doctor-image {
+  width: 100px; /* Adjust image size as needed */
+  height: 100px; /* Adjust image size as needed */
+  border-radius: 50%; /* Rounded image */
+  margin-bottom: 10px; /* Spacing between image and text */
+}
+.doctor-card:hover {
+  transform: translateY(-5px); /* Move card upwards on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Change box shadow on hover */
+}
+
+.doctor-image:hover {
+  opacity: 0.8; /* Reduce opacity of image on hover */
+}
